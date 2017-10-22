@@ -12,6 +12,9 @@ gem 'rails', '~> 5.1.4'
 gem 'mysql2'
 gem 'native_enum', git: "https://github.com/piotrm/native_enum.git"
 gem 'composite_primary_keys'
+gem 'active_model_serializers'
+gem 'will_paginate'
+gem 'input_sanitizer', git: 'git@github.com:futuresimple/input_sanitizer.git', tag: '0.3.26'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -31,6 +34,7 @@ group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  gem 'database_cleaner'
 end
 
 group :development, :test do

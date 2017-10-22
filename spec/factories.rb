@@ -3,7 +3,9 @@ require 'factory_girl'
 FactoryGirl.define do
   factory :department do
     sequence(:dept_no)
-    dept_name { Faker::Commerce.department.truncate(40) }
+    sequence(:dept_name) do |n|
+      (Faker::Commerce.department+"#{n}").truncate(40)
+    end
   end
 
   factory :department_employee do
