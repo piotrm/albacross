@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
-gem 'native_enum'
+gem 'native_enum', git: "https://github.com/piotrm/native_enum.git"
 gem 'composite_primary_keys'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -30,6 +30,7 @@ gem 'puma', '~> 3.7'
 group :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'faker'
 end
 
 group :development, :test do
