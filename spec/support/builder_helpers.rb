@@ -9,3 +9,11 @@ def build_employee_with_relations(options = {})
   FactoryGirl.create(:title, title_options )
   employee
 end
+
+def build_active_employee_stats(emp_no)
+  {
+    emp_no: emp_no,
+    clicks: 10,
+    views: 10
+  }
+end
