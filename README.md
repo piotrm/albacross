@@ -1,4 +1,4 @@
-# albacross
+# albacross (WIP)
 ## backend-recruitment-task
 
 -> https://github.com/piotrm/albacross/commit/455f9496ae59d1080507bfa1a2cad381b57ed5fc
@@ -28,3 +28,14 @@
 - Initial concept circled around making the enpoint compliant with the __json:api__ spec, but it then turned out that with given DB schema it is impossible because one of the major requirements of __json:api__ is to have `:id` which is obviously missing. Ultimately, the API's response is close to what __json:api__ offers, with similar structure and amount of meta-information.
 - The logic responsible for fetching the data has been moved to `FetchEmployees` Service class in order to keep the controller lightweight.
 - `input_sanitizer` gem helps to ensure that the parameters' format is proper.
+
+
+-> https://github.com/piotrm/albacross/commit/9ee75bd19452cc1f57a113741fd9a91fd2571bc2
+- Exposes endpoint that allows to fetch __active__ __Employees__ along with __Departments__, __Titles__ and __Salaries__. Active, because there are recorded activities (clicks, views) for them. Also in this case the pagination has been implemented. The response is formated in the same manner as in case of /api/v1/employees.
+- The logic responsible for fetching the employees is located in `FetchActiveEmployees` Service class.
+- The logic responsible for retrieving stats from Elasticsearch is located in `SeekEmployeeStat` Service class, not to make mess in the Department model. I am not the fan of "fat model, skinny controller" approach - I prefer moving responsibilites to other class (libs, service classes, domain classes etc.)
+
+TODO:
+- remove unused elements
+- apply tweaks
+- deploy to Heroku
