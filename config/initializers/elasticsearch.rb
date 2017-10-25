@@ -1,5 +1,5 @@
 config = {
-  host: "http://localhost:9202",
+  host: ENV.fetch("ALBACROSS_ES"),
   transport_options: {
     request: { timeout: 5 }
   }
