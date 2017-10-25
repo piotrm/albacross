@@ -14,7 +14,7 @@ gem 'native_enum', git: "https://github.com/piotrm/native_enum.git"
 gem 'composite_primary_keys'
 gem 'active_model_serializers'
 gem 'will_paginate'
-gem 'input_sanitizer', git: 'git@github.com:futuresimple/input_sanitizer.git', tag: '0.3.26'
+gem 'input_sanitizer', git: 'https://github.com/futuresimple/input_sanitizer.git', tag: '0.3.26'
 gem 'elasticsearch-rails'
 gem 'elasticsearch-model'
 # Use Puma as the app server

@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:futuresimple/input_sanitizer.git
+  remote: https://github.com/futuresimple/input_sanitizer.git
   revision: a15c6629dd2d16483c78f26fb9d6bf612ba53447
   tag: 0.3.26
   specs:
