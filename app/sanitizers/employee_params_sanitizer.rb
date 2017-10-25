@@ -1,6 +1,6 @@
 class EmployeeParamsSanitizer < InputSanitizer::Sanitizer
-  integer :page
-  integer :per_page
   integer :salary_from
   integer :salary_to
+  custom :page, converter: InputSanitizer::PositiveIntegerConverter.new
+  custom :per_page, converter: InputSanitizer::PositiveIntegerConverter.new
 end
