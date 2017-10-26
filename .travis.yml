@@ -1,0 +1,9 @@
+language: ruby
+rvm:
+ - 2.4.2
+env:
+ - ALBACROSS_HOST="localhost" ALBACROSS_DB_USER="root" ALBACROSS_DB_PASSWORD="" ALBACROSS_ES="localhost:9202"
+script:
+ - bundle exec rake db:create
+ - bundle exec rake db:schema:load
+ - bundle exec rake spec
