@@ -17,14 +17,20 @@ Swagger has a feature that allows to test the API with provided parameters strai
 The response from the endpoints is also available via browser under: http://albacrossrecru.herokuapp.com/api/v1/
 
 ### CURL
-Third option is to use CURL, e.g.:
+Third option is to use CURL.
 
+With headers:
 ```
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://albacrossrecru.herokuapp.com/api/v1/employees\?page\=1&per_page\=15&salary_from\=50000&salary_to=54000
 ```
 
 ```
 curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://albacrossrecru.herokuapp.com/api/v1/departments/d009/active_employees\?page\=1
+```
+
+Without headers (pretty print works on OS X):
+```
+curl -H "Accept: application/json" -H "Content-Type: application/json" -X GET  https://albacrossrecru.herokuapp.com/api/v1/departments/d005/active_employees | python -mjson.tool
 ```
 
 ## Progress Log
