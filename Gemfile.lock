@@ -216,7 +216,6 @@ DEPENDENCIES
   rspec-rails
   spring
   spring-watcher-listen (~> 2.0.0)
-  tzinfo-data
   will_paginate
 
 RUBY VERSION
