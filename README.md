@@ -1,4 +1,4 @@
-# Albacross - backend-recruitment-task
+# Albacross - backend-recruitment-task [![Build Status](https://travis-ci.org/piotrm/albacross.svg?branch=master)](https://travis-ci.org/piotrm/albacross)
 
 ## Testing the solution
 The solution has been deployed to Heroku, therefore there is no need to set it up locally in order to see the results.
