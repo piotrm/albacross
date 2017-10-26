@@ -16,8 +16,8 @@ Swagger has a feature that allows to test the API with provided parameters strai
 ### Browser
 The response from the endpoints is also available via browser under: http://albacrossrecru.herokuapp.com/api/v1/
 
-### CURL
-Third option is to use CURL.
+### cURL
+Third option is to use cURL.
 
 With headers:
 ```
