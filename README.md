@@ -1,5 +1,33 @@
-# albacross (WIP)
-## backend-recruitment-task
+# Albacross - backend-recruitment-task
+
+## Testing the solution
+The solution has been deployed to Heroku, therefore there is no need to set it up locally in order to see the results.
+
+### Swagger
+There is a description for the API prepared in swagger that can be found here:
+https://app.swaggerhub.com/apis/pmatuszkiewicz/AlbacrossAPI/1.0.0
+
+Swagger has a feature that allows to test the API with provided parameters straight from the documentation. In order to do it:
+1. Select the endpoint
+2. Press "Try it out"
+3. Provide parameters
+4. Execute
+
+### Browser
+The response from the endpoints is also available via browser under: http://albacrossrecru.herokuapp.com/api/v1/
+
+### CURL
+Third option is to use CURL, e.g.:
+
+```
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://albacrossrecru.herokuapp.com/api/v1/employees\?page\=1&per_page\=15&salary_from\=50000&salary_to=54000
+```
+
+```
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET https://albacrossrecru.herokuapp.com/api/v1/departments/d009/active_employees\?page\=1
+```
+
+## Progress Log
 
 -> https://github.com/piotrm/albacross/commit/455f9496ae59d1080507bfa1a2cad381b57ed5fc
 - Generates schema.rb from external DB's schema by `rake db:schema:dump` to make sure the schema does not get out of sync during cumbersome migrations' creation process
