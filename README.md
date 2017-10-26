@@ -60,16 +60,23 @@ curl -H "Accept: application/json" -H "Content-Type: application/json" -X GET  h
 -> https://github.com/piotrm/albacross/commit/4dfa91c15a95c963d6ca9a37a71d47f9d04f32af
 - Exposes endpoint that allows to fetch __Employees__ along with __Departments__, __Titles__ and __Salaries__. It allows to fetch both all of the Employees (with pagination - either with specified `page` / `per_page` prams or with default ones `page: 1` and `per_page: 10`) and Employees filtered by the salary range by providing `salary_from` or/and `salary_to` parameters.
 - Initial concept circled around making the enpoint compliant with the __json:api__ spec, but it then turned out that with given DB schema it is impossible because one of the major requirements of __json:api__ is to have `:id` which is obviously missing. Ultimately, the API's response is close to what __json:api__ offers, with similar structure and amount of meta-information.
-- The logic responsible for fetching the data has been moved to `FetchEmployees` Service class in order to keep the controller lightweight.
+- The logic responsible for fetching the data has been moved to `FetchEmployees` service object in order to keep the controller lightweight.
 - `input_sanitizer` gem helps to ensure that the parameters' format is proper.
 
 
 -> https://github.com/piotrm/albacross/commit/9ee75bd19452cc1f57a113741fd9a91fd2571bc2
 - Exposes endpoint that allows to fetch __active__ __Employees__ along with __Departments__, __Titles__ and __Salaries__. Active, because there are recorded activities (clicks, views) for them. Also in this case the pagination has been implemented. The response is formated in the same manner as in case of /api/v1/employees.
-- The logic responsible for fetching the employees is located in `FetchActiveEmployees` Service class.
-- The logic responsible for retrieving stats from Elasticsearch is located in `SeekEmployeeStat` Service class, not to make mess in the Department model. I am not the fan of "fat model, skinny controller" approach - I prefer moving responsibilites to other class (libs, service classes, domain classes etc.)
+- The logic responsible for fetching the employees is located in `FetchActiveEmployees` service object.
+- The logic responsible for retrieving stats from Elasticsearch is located in `SeekEmployeeStat` service object, not to make mess in the Department model. I am not the fan of "fat model, skinny controller" approach - I prefer moving responsibilites to other class (libs, service objects, domain classes etc.)
 
-TODO:
-- remove unused elements
-- apply tweaks
-- deploy to Heroku
+
+-> https://github.com/piotrm/albacross/commit/28d13e0848c10888264827f4643f31b39db434d1
+- Moves ResponseFormatter from __/lib__ to __app/lib__ in order to leverage file autoloading on production environment
+
+
+-> https://github.com/piotrm/albacross/commit/b8d0fef61cf9e9097344397adb07b8e1cd4afc56
+- Replaces hardcoded Elasticsearch host for ENV variable - in the same manner as in case of DB credentials.
+
+
+-> https://github.com/piotrm/albacross/commit/8851e216656950e59ae369d31a2ac697d56f01a1
+- Sets additional constraints on `page` and `per_page` parameters - they has to be positive integers. In case there will be 0 or less than 0 the endpoints will return `400 Bad Request`. In order to set the constraints `input_sanitizer` gem is used.
